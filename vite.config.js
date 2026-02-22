@@ -7,6 +7,8 @@ export default defineConfig({
         laravel({
             input: ['resources/css/app.css', 'resources/js/app.js'],
             refresh: true,
+             // Add this line to change output directory to dist
+            buildDirectory: 'dist'
         }),
         tailwindcss(),
     ],
@@ -14,5 +16,9 @@ export default defineConfig({
         watch: {
             ignored: ['**/storage/framework/views/**'],
         },
+    },
+    build: {
+        outDir: 'dist', // <-- Vercel expects 'dist'
+        emptyOutDir: true
     },
 });
